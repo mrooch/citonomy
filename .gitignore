@@ -15,4 +15,5 @@ hs_err_pid*
 .gradle/
 .idea/
 build/
+docs/[local]*.*
 !/gradle/wrapper/gradle-wrapper.jar
