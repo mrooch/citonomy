@@ -1,3 +1,4 @@
 rootProject.name = 'citonomy'
 
 include "cite-storage"
+include "cite-hub"
