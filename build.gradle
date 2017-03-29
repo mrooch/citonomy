@@ -1,0 +1,52 @@
+buildscript{
+    ext{
+    }
+
+    repositories{
+        mavenCentral()
+        jcenter()
+
+        maven { url "https://maven.java.net/content/repositories/public/" }
+        maven { url "http://repository.jboss.org/nexus/content/groups/public/" }
+    }
+
+    dependencies{
+    }
+}
+
+plugins {
+    id "io.spring.dependency-management" version "1.0.1.RELEASE"
+}
+
+allprojects{
+    group "com.citonomy"
+    version "1.0-SNAPSHOT"
+}
+
+subprojects {
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+
+    apply plugin: "java"
+    apply plugin: "idea"
+    apply plugin: "io.spring.dependency-management"
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    ext{
+        junit_version = "4.12"
+    }
+
+    dependencyManagement{
+        imports{
+            mavenBom 'io.spring.platform:platform-bom:2.0.8.RELEASE'
+        }
+    }
+
+    dependencies{
+        testCompile "junit:junit:${junit_version}"
+    }
+}
